@@ -110,7 +110,9 @@ tags$head(
             title = "Party Profile", 
             plotOutput("partyprof")
         )),
-    
+                  
+    ######### to keep dashboard alive. ##########
+    textOutput("keepAlive")
     )
 )
 
