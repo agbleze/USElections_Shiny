@@ -1,6 +1,28 @@
 #user-interface definition of a Shiny web application. 
 library(shiny)
 library(shinydashboard)
+
+####control time-out
+
+tags$head(
+        HTML(
+          "
+          <script>
+          var socket_timeout_interval
+          var n = 0
+          $(document).on('shiny:connected', function(event) {
+          socket_timeout_interval = setInterval(function(){
+          Shiny.onInputChange('count', n++)
+          }, 15000)
+          });
+          $(document).on('shiny:disconnected', function(event) {
+          clearInterval(socket_timeout_interval)
+          });
+          </script>
+          "
+        )
+        )
+
  dashboardPage(
     dashboardHeader(title = "US Presidential Election Profile",
                      # dropdownMenu(badgeStatus = "success", type = c("messages","notifications","tasks"),
