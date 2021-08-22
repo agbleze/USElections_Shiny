@@ -154,6 +154,12 @@ server <- function(input, output, session){
             value = paste0(turnout_per, "%"), paste0("Eligible voters casted their ballot in ", yearSel ), icon = icon("person-booth"),color = "olive",
         )
     })
+        
+        #### keep app alive ######
+         output$keepAlive <- renderText({
+      req(input$count)
+      paste("keep alive ", input$count)
+    })
 }
 
 
