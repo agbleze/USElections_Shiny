@@ -82,7 +82,7 @@ tags$head(
     
     fluidRow(
         # box for sliderInput
-        box( width = 5,background = "aqua",
+        box( width = 5,#background = "aqua",
             sliderInput("elect_yr", "Select time period for timeseries analysis of election voter turnout",
                         min = 1824,
                         max = 2016,
